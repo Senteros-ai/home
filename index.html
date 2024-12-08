@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senteros AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+        <button id="language-toggle">
+            <i class="fa-solid fa-language"></i>
+        </button>
+        <header>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About Senteros AI</a>
+                <a href="#faq">FAQ</a>
+                <button id="menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </header>
+        <div id="container">
+            <!-- Секции остаются как есть -->
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+    <div id="container">
+        <!-- Главный экран -->
+        <section id="home" class="section">
+            <div class="content home-content">
+                <div class="text">
+                    <h1>Welcome to Senteros AI</h1>
+                    <p>
+                        Unlock your creativity and productivity with <br>
+                        advanced AI tools that simplify your work.
+                    </p>
+                    <a href="https://senteros-ai.github.io/senteros.ai/" class="get-started">Get Started</a>
+                </div>
+                <div class="image">
+                    <img src="robot.png" alt="Robot Illustration" class="robot">
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section">
+            <h1>About Senteros AI</h1>
+            <p>Senteros AI is your personal assistant designed to help you achieve more with less effort. Our cutting-edge AI technology streamlines your daily tasks, fosters creativity, and boosts productivity in ways you've never imagined.</p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <h1>FAQ</h1>
+            <div class="faq-item">
+                <h2>What is Senteros AI?</h2>
+                <p>Senteros AI is a platform that provides powerful AI tools to simplify your workflow and enhance creativity.</p>
+            </div>
+            <div class="faq-item">
+                <h2>How can I get started?</h2>
+                <p>Click the "Get Started" button on the homepage to explore our tools and features!</p>
+            </div>
+            <div class="faq-item">
+                <h2>Is it free to use?</h2>
+                <p>Yes, Senteros AI offers a free plan with access to basic features. Premium plans are also available for advanced tools.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const languageToggle = document.getElementById('language-toggle');
+        const elementsToTranslate = {
+            "en": {
+                "home": "Home",
+                "about": "About Senteros AI",
+                "faq": "FAQ",
+                "welcome": "Welcome to Senteros AI",
+                "intro": "Unlock your creativity and productivity with <br> advanced AI tools that simplify your work.",
+                "aboutSection": "Senteros AI is your personal assistant designed to help you achieve more with less effort. Our cutting-edge AI technology streamlines your daily tasks, fosters creativity, and boosts productivity in ways you've never imagined.",
+                "faq1": "What is Senteros AI?",
+                "faq1answer": "Senteros AI is a platform that provides powerful AI tools to simplify your workflow and enhance creativity.",
+                "faq2": "How can I get started?",
+                "faq2answer": "Click the 'Get Started' button on the homepage to explore our tools and features!",
+                "faq3": "Is it free to use?",
+                "faq3answer": "Yes, Senteros AI offers a free plan with access to basic features. Premium plans are also available for advanced tools."
+            },
+            "ru": {
+                "home": "Главная",
+                "about": "О Senteros AI",
+                "faq": "Вопросы и ответы",
+                "welcome": "Добро пожаловать в Senteros AI",
+                "intro": "Раскройте свою креативность и продуктивность с помощью <br> современных инструментов ИИ, которые упрощают вашу работу.",
+                "aboutSection": "Senteros AI — это ваш персональный помощник, созданный, чтобы помогать вам достигать большего с меньшими усилиями. Наши передовые технологии ИИ упрощают повседневные задачи, развивают творческие способности и повышают производительность.",
+                "faq1": "Что такое Senteros AI?",
+                "faq1answer": "Senteros AI — это платформа, предоставляющая мощные инструменты ИИ для упрощения работы и повышения креативности.",
+                "faq2": "Как начать пользоваться?",
+                "faq2answer": "Нажмите кнопку 'Начать' на главной странице, чтобы изучить наши инструменты и функции!",
+                "faq3": "Это бесплатно?",
+                "faq3answer": "Да, Senteros AI предлагает бесплатный план с доступом к базовым функциям. Также доступны премиум-планы для расширенных инструментов."
+            }
+        };
+
+        // Функция для определения языка системы и переключения на нужный
+        const systemLanguage = navigator.language || navigator.userLanguage; 
+        const defaultLanguage = systemLanguage.includes('ru') ? 'ru' : 'en';
+        let currentLanguage = defaultLanguage;
+
+        // Обновляем контент в зависимости от выбранного языка
+        function updateLanguage() {
+            document.querySelector('a[href="#home"]').textContent = elementsToTranslate[currentLanguage].home;
+            document.querySelector('a[href="#about"]').textContent = elementsToTranslate[currentLanguage].about;
+            document.querySelector('a[href="#faq"]').textContent = elementsToTranslate[currentLanguage].faq;
+            document.querySelector('#home h1').innerHTML = elementsToTranslate[currentLanguage].welcome;
+            document.querySelector('#home p').innerHTML = elementsToTranslate[currentLanguage].intro;
+            document.querySelector('#about p').textContent = elementsToTranslate[currentLanguage].aboutSection;
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems[0].querySelector('h2').textContent = elementsToTranslate[currentLanguage].faq1;
+            faqItems[0].querySelector('p').textContent = elementsToTranslate[currentLanguage].faq1answer;
+            faqItems[1].querySelector('h2').textContent = elementsToTranslate[currentLanguage].faq2;
+            faqItems[1].querySelector('p').textContent = elementsToTranslate[currentLanguage].faq2answer;
+            faqItems[2].querySelector('h2').textContent = elementsToTranslate[currentLanguage].faq3;
+            faqItems[2].querySelector('p').textContent = elementsToTranslate[currentLanguage].faq3answer;
+        }
+
+        // Изначально устанавливаем язык на основе системного языка
+        updateLanguage();
+
+        // Обработчик для кнопки переключения языка
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === "en" ? "ru" : "en";
+            updateLanguage();
+        });
+    </script>
+</body>
+</html>

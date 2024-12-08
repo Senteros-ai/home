@@ -1,0 +1,182 @@
+/* Подключение шрифта */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(20, 20, 20, 0.9); /* Темнее */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #00bcd4;
+}
+
+header nav button {
+    display: none;
+}
+
+/* Секции */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90vh;
+    padding: 20px;
+    background-size: cover;
+    background-color: #121212;
+    flex-direction: column; /* Элементы располагаются вертикально */
+}
+
+.section h1 {
+    font-size: 48px;
+    margin-bottom: 15px; /* Пространство между заголовком и текстом */
+    color: #fff;
+}
+
+.section p {
+    font-size: 18px;
+    color: #aaa;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+/* Главный экран */
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+}
+
+.home-content .text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.home-content .text h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #00bcd4, #ff4081);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.home-content .text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.home-content .get-started {
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-content .get-started:hover {
+    background-color: #0097a7;
+    transform: translateY(-3px);
+}
+
+/* Робот */
+.home-content .image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.home-content .robot {
+    width: 300px;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* FAQ */
+.faq-item {
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 600px;
+}
+
+.faq-item h2 {
+    font-size: 24px;
+    color: #00bcd4;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+/* Для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content .text {
+        margin-bottom: 20px;
+    }
+
+    .home-content .robot {
+        width: 250px;
+    }
+}
